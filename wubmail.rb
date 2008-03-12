@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 #
-# WubMail is a small wrapper to send quick emails with an erb template.
+# WubMail is a tiny wrapper to send emails with an erb template.
 # by Sunny Ripert
 #
 # Example
@@ -49,7 +49,7 @@ class WubMail
 
     # build a headers hash
     header_lines = @smtp_message.split("\n\n", 2).first.split("\n")
-    headers_options = header_lines.map { |l| opt = l.split(/: ?/, 2) }
+    headers_options = header_lines.map { |line| line.split(/: ?/, 2) }
     @headers = Hash[*header_options.flatten]
 
     # guess emails from headers
