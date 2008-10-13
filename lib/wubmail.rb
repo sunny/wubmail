@@ -1,42 +1,4 @@
 #!/usr/bin/ruby
-#
-# WubMail is a tiny wrapper to send emails with an erb template.
-# by Sunny Ripert
-#
-# Quick Example
-# -------------
-#   WubMail.new(open('welcome.txt').read, :email => "negatif@gmail.com",
-#     :name => "Sunny", :sex => "male").send!
-#
-# Full Example
-# -------
-# welcome.txt:
-#   From: Sunny <sunny@sunfox.org>
-#   To: <%= name%> <<%= email %>>
-#   Subject: HAY <%= name %>!1
-#   X-Mailer: Wubmail
-#    
-#   Hello <%= name %>,
-#   You are one hell of a cute <%= sex == "female" ? "girl" : "boy" %>!
-#
-# users.csv:
-#   email,name,sex
-#   negatif@gmail.com,Sunny,male
-#   hima@example.com,Audrey,female
-#
-# $ ruby wubmail.rb welcome.txt users.csv
-#   From: Sunny <sunny@sunfox.org>
-#   To: Sunny <negatif@gmail.com>
-#   Subject: HAY Sunny!1
-#   X-Mailer Wubmail
-#
-#   Hello Sunny,
-#   You are one hell of a cute guy!
-#
-#
-# Licence
-# -------
-# Ermm. GPL? I Guess?
 
 require 'erb'
 require 'net/smtp'
