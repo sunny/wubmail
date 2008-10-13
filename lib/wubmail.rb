@@ -121,23 +121,3 @@ class WubMailCSV
   end
 end
 
-
-def main
-  abort "Usage: #{$0} [-s] templatefile peoplecsv" if ARGV.size < 2
-
-  emailer = WubMailCSV.new(ARGV[-2], ARGV[-1])
-
-  if ARGV.first == "-s"
-    emailer.send! do |recipient, ok|
-      puts "#{recipient[:email]}: #{ok ? "Done!" : "FAIL!"}"
-    end
-  else
-    puts emailer.example
-    puts
-    puts "Use -s to send it right now to #{emailer.recipients.size} recipients"
-  end
-end
-
-
-main if __FILE__ == $0
-
