@@ -26,12 +26,12 @@
 #
 # $ ruby wubmail.rb welcome.txt users.csv
 #   From: Sunny <sunny@sunfox.org>
-#   To: Audrey <hima@example.com>
-#   Subject: HAY Audrey!1
+#   To: Sunny <negatif@gmail.com>
+#   Subject: HAY Sunny!1
 #   X-Mailer Wubmail
 #
-#   Hello Audrey,
-#   You are one hell of a cute girl!
+#   Hello Sunny,
+#   You are one hell of a cute guy!
 #
 #
 # Licence
@@ -115,7 +115,8 @@ class WubMailCSV
   
   def send!
     @recipients.each do |recipient_hash|
-      WubMail.new(@template, recipient_hash).send!
+      ok = WubMail.new(@template, recipient_hash).send!
+      yield [recipient_hash, ok] if block_given?
     end
   end
 end
@@ -127,7 +128,9 @@ def main
   emailer = WubMailCSV.new(ARGV[-2], ARGV[-1])
 
   if ARGV.first == "-s"
-    emailer.send!
+    emailer.send! do |recipient, ok|
+      puts "#{recipient[:email]}: #{ok ? "Done!" : "FAIL!"}"
+    end
   else
     puts emailer.example
     puts
