@@ -13,29 +13,26 @@ welcome.txt:
     From: Sunny <sunny@sunfox.org>
     To: <%= name %> <<%= email %>>
     Subject: HAY <%= name %>!1
-    X-Mailer: Wubmail
-     
+    
     Hello <%= name %>,
     You are one hell of a cute <%= sex == "female" ? "girl" : "boy" %>!
 
 users.csv:
 
     email,name,sex
-    sunny@example.com,Sunny,male
-    audrey@example.com,Audrey,female
+    jack@example.com,Jack,male
+    ianto@example.com,Ianto,male
 
 Then typing:
 
     $ wubmail -s welcome.txt users.csv
 
-Will send:
+Will send to all users something like this:
 
     From: Sunny <sunny@sunfox.org>
-    To: Sunny <negatif@gmail.com>
-    Subject: HAY Sunny!1
-    X-Mailer Wubmail
+    To: Jack <jack@example.com>
+    Subject: HAY Jack!1
     
-    Hello Sunny,
+    Hello Jack,
     You are one hell of a cute guy!
-
 
