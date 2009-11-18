@@ -3,27 +3,26 @@ WubMail
 
 WubMail is a tiny wrapper to send emails with an erb template.
 
-By Sunny Ripert.
+By Sunny Ripert <http://sunfox.org>, under the WTFPL <http://sam.zoy.org/wtfpl/>
 
-=======
 Example
-=======
+-------
 
-`welcome.txt`:
+welcome.txt:
 
   From: Sunny <sunny@sunfox.org>
-  To: <%= name%> <<%= email %>>
+  To: <%= name %> <<%= email %>>
   Subject: HAY <%= name %>!1
   X-Mailer: Wubmail
    
   Hello <%= name %>,
   You are one hell of a cute <%= sex == "female" ? "girl" : "boy" %>!
 
-`users.csv`:
+users.csv:
 
   email,name,sex
-  negatif@gmail.com,Sunny,male
-  hima@example.com,Audrey,female
+  sunny@example.com,Sunny,male
+  audrey@example.com,Audrey,female
 
 Then typing:
 
@@ -39,10 +38,4 @@ Will send:
   Hello Sunny,
   You are one hell of a cute guy!
 
-
-=======
-Licence
-=======
-
-Ermm. GPL? I Guess?
 
