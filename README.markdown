@@ -1,7 +1,7 @@
 WubMail
 =======
 
-WubMail is a tiny wrapper to send emails with an erb template. Also likes CSV files a lot.
+WubMail is a small tool to send emails using a template and a CSV file.
 
 By Sunny Ripert <http://sunfox.org>, under the WTFPL <http://sam.zoy.org/wtfpl/>
 
@@ -24,19 +24,10 @@ welcome.txt:
     Hello <%= name %>,
     You are one hell of a cute <%= sex == "female" ? "girl" : "boy" %>!
 
-You see, it knows about `email`, `name` and `sex` as they are the names of the columns of your `users.csv` file.
+You see, it knows about `email`, `name` and `sex` as they are the names of the columns of your csv file.
 
-Then type:
+Then type in a terminal:
 
     $ wubmail welcome.txt users.csv
 
-And it will print out an example, like so:
-
-    From: Sunny <sunny@sunfox.org>
-    To: Jack <jack@example.com>
-    Subject: Hello Jack!
-    
-    Hello Jack,
-    You are one hell of a cute guy!
-
-When you are ready, call wubmail again with the `-s` argument and whizz! it will be sent to everybody in the csv file.
+And it will print out an example, which you can send to everybody if you call `wubmail` again with the `-s` argument. file. That's it!
