@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
-
-require File.dirname(__FILE__) + '/../lib/wubmail'
+$:.unshift File.dirname(__FILE__) + '/../lib/'
+require 'wubmail'
 
 abort "Usage: #{File.basename($0)} [-s] templatefile peoplecsv" if ARGV.size < 2
 
