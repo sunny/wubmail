@@ -31,3 +31,9 @@ Then type in a terminal:
     $ wubmail welcome.txt users.csv
 
 And it will print out an example, which you can send to everybody if you call wubmail again with the `-s` argument. That's it!
+
+
+Install
+-------
+
+    $ gem install wubmail -s http://gemcutter.org
