@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name     = "wubmail"
-  s.version  = "0.1"
+  s.version  = "1.0"
   s.date     = "2008-10-13"
   s.summary  = "Send emails with a CSV and an ERB template"
   s.email    = "negatif@gmail.com"
