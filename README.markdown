@@ -3,12 +3,12 @@ WubMail
 
 WubMail is a small tool to send emails using a template and a CSV file.
 
-By Sunny Ripert <http://sunfox.org>, under the WTFPL <http://sam.zoy.org/wtfpl/>
+By Sunny Ripert <http://sunfox.org>, under the WTFPL <http://sam.zoy.org/wtfpl/>.
 
 Install
 -------
 
-    $ gem install wubmail -s http://gemcutter.org
+    $ gem install wubmail
 
 Example
 -------
@@ -57,25 +57,26 @@ Another example
 
 friends.txt:
 
-  email,arrival_time,ps
-  naps@example.com,18
-  webs@example.com,18,PS: Don't be late this time!
-  srzt@example.com,16
-  ook?@example.com,16
+    email,arrival_time,ps
+    naps@example.com,18
+    srzt@example.com,16
+    phil@example.com,16
+    webs@example.com,18,PS: Don't be late this time!
+    gamo@example.com,18,PS: Don't forget to bring one of your favorite recipes.
 
 winners_message.html.erb:
 
-  From: Sunny <sunny@sunfox.org>
-  To: <%= email %>
-  Subject: Great Party
-  X-Mailer: Wubmail/1.0
+    From: Sunny <sunny@sunfox.org>
+    To: <%= email %>
+    Subject: Great Party
+    X-Mailer: Wubmail/1.0
 
-  Hello,
-  Just a quick note to tell you that for the great party
-  you should arrive at <%= arrival_time %> o'clock.
+    Hello,
+    Just a quick note to tell you that for the great party
+    you should arrive at <%= arrival_time %> o'clock.
 
-  Thanks,
-  Sunny
+    Thanks,
+    Sunny
 
-  <%= ps %>
+    <%= ps %>
 
