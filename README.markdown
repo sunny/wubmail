@@ -1,39 +1,45 @@
 WubMail
 =======
 
-WubMail is a small tool to send emails using a template and a CSV file.
-
-By Sunny Ripert <http://sunfox.org>, under the WTFPL <http://sam.zoy.org/wtfpl/>.
+WubMail is a small command line tool to send emails to using a template and a list of emails.
 
 Install
 -------
 
-    $ gem install wubmail
+```sh
+$ gem install wubmail
+```
 
 Example
 -------
 
-users.csv:
+users.txt:
 
-    email,name,sex
-    jack@example.com,Jack,male
-    gwen@example.com,Gwen,female
-    ianto@example.com,Ianto,male
+```csv
+email,name,sex
+jack@example.com,Jack,male
+gwen@example.com,Gwen,female
+ianto@example.com,Ianto,male
+```
 
 welcome.txt:
 
-    From: Sunny <sunny@sunfox.org>
-    To: <%= name %> <<%= email %>>
-    Subject: Hello <%= name %>!
+```erb
+From: Sunny <sunny@sunfox.org>
+To: <%= name %> <<%= email %>>
+Subject: Hello <%= name %>!
 
-    Hello <%= name %>,
-    You are one hell of a cute <%= sex == "female" ? "girl" : "boy" %>!
+Hello <%= name %>,
+You are one hell of a cute <%= sex == "female" ? "girl" : "boy" %>!
+```
 
 Then type in a terminal:
 
-    $ wubmail welcome.txt users.csv
+```sh
+$ wubmail welcome.txt users.csv
+```
 
-And it will print out an example. You can then end send it to everybody if you call wubmail again with the `-s` argument. That's it!
+And it will print out an example. Send it to everybody by adding the `-s` argument. That's it!
 
 
 Answers
@@ -41,42 +47,50 @@ Answers
 
 ### How do I add variables in the message?
 
-Just create new columns in your csv like I did in the example with `email`, `name` and `sex`. You may use any column name you want as long as it fits a Ruby variable name.
+Just create new columns in your csv. You may use any column name you want as long as it can be a Ruby variable name.
 
 ### What can I put in my email?
 
-The message is parsed using Erb, which means you can put any amount of Ruby you'd like in it, between `<%` and `%>`.
+The message is parsed using erb, which means you can put any amount of Ruby you'd like in it, between `<%` and `%>`.
 
 ### How do I add headers?
 
-You can add as many headers as you like by adding them next to From, To and Subject like in the example.
+Just add lines under From, To and Subject.
 
 
 Another example
 ---------------
 
-friends.txt:
+friends.csv:
 
-    email,arrival_time,ps
-    naps@example.com,18
-    srzt@example.com,16
-    phil@example.com,16
-    webs@example.com,18,PS: Don't be late this time!
-    gamo@example.com,18,PS: Don't forget to bring one of your favorite recipes.
+```csv
+email,arrival_time,ps
+naps@example.com,18
+srzt@example.com,16
+phil@example.com,16
+webs@example.com,18,PS: Don't be late this time!
+gamo@example.com,18,PS: Don't forget to bring one of your favorite recipes.
+```
 
-winners_message.html.erb:
+party-email.txt.erb:
 
-    From: Sunny <sunny@sunfox.org>
-    To: <%= email %>
-    Subject: Great Party
-    X-Mailer: Wubmail/1.0
+```erb
+From: Sunny <sunny@sunfox.org>
+To: <%= email %>
+Subject: Great Party
+X-Mailer: Wubmail/1.0
 
-    Hello,
-    Just a quick note to tell you that for the great party
-    you should arrive at <%= arrival_time %> o'clock.
+Hello,
+Just a quick note to tell you that for the great party
+you should arrive at <%= arrival_time %> o'clock.
 
-    Thanks,
-    Sunny
+Thanks,
+Sunny
 
-    <%= ps %>
+<%= ps %>
+```
 
+Credits
+-------
+
+By Sunny Ripert <http://sunfox.org>, under the WTFPL <http://sam.zoy.org/wtfpl/>.
